@@ -1,0 +1,27 @@
+{
+  "name": "vidsrc-utils",
+  "version": "1.0.0",
+  "description": "Utility functions for vidsrc and embed.su",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./embed-su": "./dist/embed-su.js",
+    "./vidsrcrip": "./dist/vidsrcrip.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@types/node": "^22.7.5"
+  }
+}
