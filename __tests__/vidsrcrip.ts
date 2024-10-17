@@ -1,4 +1,4 @@
-import { getVideo, getStreamUrl, generateVRF } from "../vidsrcrip";
+import { getVideo, getStreamUrl, generateVRF } from "../src/vidsrcrip"; // generateVRF is not exported since it's useless with the current implementation
 
 async function runTests() {
   console.log("Testing vidsrcrip.ts");

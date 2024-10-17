@@ -161,5 +161,5 @@ function generateVRF(key: string, encodedMessage: string) {
   return encodeURIComponent(Buffer.from(xorResult).toString("base64"));
 }
 
-export { getVideo, getStreamUrl, generateVRF };
+export { getVideo, getStreamUrl };
 export type { VideoConfig, Stream };
