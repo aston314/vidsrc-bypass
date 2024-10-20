@@ -1,4 +1,4 @@
-import { getVideo, getStreamUrl, addCount } from "../embed-su";
+import { getVideo, getStreamUrl, addCount } from "../src/embed-su";
 
 async function runTests() {
   console.log("Testing embed-su.ts");
