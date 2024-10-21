@@ -10,7 +10,7 @@ vidsrc-bypass is a TypeScript utility library for interacting with vidsrc and em
 - Fetch video configurations from vidsrc.rip
 - Get stream URLs from vidsrc.rip
 - TypeScript support with type definitions
-- Get streamu URLs from vidlink.pro
+- Get stream URLs from vidlink.pro
 
 ## Installation
 
