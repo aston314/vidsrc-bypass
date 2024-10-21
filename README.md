@@ -60,7 +60,7 @@ const movieVideo = await getVidLinkProVideo({ id: "786892", type: "movie" });
 // For TV shows (TMDB series ID, season, episode, type) 
 const tvShowVideo = await getVidLinkProVideo({ id: "48891", season: 1, episode: 1, type: "tv"});
 // For anime (MAL ID,episode, type, dub/sub, fallback)
-const animeVideo = getVideo({ id: "5", episode: 1, type: "anime", dub: true, fallback: true });
+const animeVideo = getVidLinkProVideo({ id: "5", episode: 1, type: "anime", dub: true, fallback: true });
 ``` 
 
 ## License
