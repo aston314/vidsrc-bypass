@@ -10,6 +10,7 @@ vidsrc-bypass is a TypeScript utility library for interacting with vidsrc and em
 - Fetch video configurations from vidsrc.rip
 - Get stream URLs from vidsrc.rip
 - TypeScript support with type definitions
+- Get streamu URLs from vidlink.pro
 
 ## Installation
 
@@ -21,14 +22,14 @@ npm install
 
 ## Usage
 
-This library exports functions for both embed.su and vidsrc.rip. Here's a brief overview of the main functions:
+This library exports functions for both embed.su, vidsrc.rip and vidlink.pro. Here's a brief overview of the main functions:
 
 ### embed.su
 
 ```typescript
 import { getEmbedSuVideo, getEmbedSuStreamUrl } from 'vidsrc-bypass';
 
-// Get video details
+// Get video details (TMDB ID)
 const movieDetails = await getEmbedSuVideo(310131);  // For movies
 const tvShowDetails = await getEmbedSuVideo(48891, 1, 1);  // For TV shows (series ID, season, episode)
 
@@ -42,12 +43,25 @@ const streamDetails = await getEmbedSuStreamUrl(movieDetails.servers[0].hash);
 
 import { getVidSrcRipVideo, getVidSrcRipStreamUrl, generateVRF } from 'vidsrc-bypass';
 
-// Get video configuration
+// Get video configuration (TMDB/IMDB ID)
 const videoConfig = await getVidSrcRipVideo('872585');
 
 // Get stream URL
 const streamUrl = await getVidSrcRipStreamUrl('flixhq', '872585');
 ```
+
+### vidlink.pro
+
+```typescript
+import { getVidLinkProVideo } from 'vidsrc-bypass';
+
+// For movies (TMDB ID, type)
+const movieVideo = await getVidLinkProVideo({ id: "786892", type: "movie" }); 
+// For TV shows (TMDB series ID, season, episode, type) 
+const tvShowVideo = await getVidLinkProVideo({ id: "48891", season: 1, episode: 1, type: "tv"});
+// For anime (MAL ID,episode, type, dub/sub, fallback)
+const animeVideo = getVideo({ id: "5", episode: 1, type: "anime", dub: true, fallback: true });
+``` 
 
 ## License
 
