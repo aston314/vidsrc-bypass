@@ -130,4 +130,4 @@ function decryptWithPassword(
 }
 
 export { getVideo };
-export type { Video, Stream, Caption, EncryptedData };
+export type { Video, Stream, Caption, EncryptedData, VideoParams, MovieParams, TVParams, AnimeParams };
