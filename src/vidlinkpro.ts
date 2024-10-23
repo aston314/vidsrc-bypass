@@ -36,8 +36,7 @@ interface Caption {
 const API_URL = "https://vidlink.pro/api/b";
 const keyHex: string =
   "2de6e6ea13a9df9503b11a6117fd7e51941e04a0c223dfeacfe8a1dbb6c52783";
-const keyClearKey: string =
-  "1c80ed144253e87742a9d4563b8b650bbe8bd41729d31f112e90bc9b0458f122"; // Named it clear key because it's looking like widevine clear key
+// const keyClearKey: string = "1c80ed144253e87742a9d4563b8b650bbe8bd41729d31f112e90bc9b0458f122"; // Named it clear key because it's looking like widevine clear key
 const algo: string = "aes-256-cbc";
 
 type MovieParams = {
@@ -86,8 +85,7 @@ async function getVideo(params: VideoParams): Promise<Video | undefined> {
     return;
   }
 
-  const encryptedData = await response.json();
-  const decryptedData = decryptClearKey(decryptWithPassword(encryptedData, keyClearKey));
+    const decryptedData = decryptClearKey(await response.text());
     return JSON.parse(decryptedData);
 }
 
@@ -114,6 +112,8 @@ function decryptClearKey(data: string): string {
   return decrypted.toString();
 }
 
+/*
+Changed for new encryption method, it's stupid ngl
 function decryptWithPassword(
   encryptedData: EncryptedData,
   password: string
@@ -128,6 +128,7 @@ function decryptWithPassword(
   decrypted += decipher.final("utf8");
   return JSON.parse(decrypted);
 }
+  */
 
 export { getVideo };
 export type { Video, Stream, Caption, EncryptedData, VideoParams, MovieParams, TVParams, AnimeParams };
