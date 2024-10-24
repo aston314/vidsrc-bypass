@@ -1,13 +1,19 @@
 {
     "compilerOptions": {
       "target": "ES2023",
-      "module": "commonjs",
+      "module": "ESNext",
+      "moduleResolution": "node",
       "declaration": true,
       "outDir": "./dist",
       "strict": true,
       "esModuleInterop": true,
-      "rootDir": "./src"
+      "skipLibCheck": true,  // 添加这行来跳过类型检查
+      "rootDir": "./src",
+      "types": ["node"],  // 只使用 node 类型
+      "lib": [
+        "ES2023"
+      ]
     },
     "include": ["src"],
     "exclude": ["node_modules", "**/__tests__/*"]
-  }
+}
