@@ -61,9 +61,11 @@ async function getVideo(
     const decodedData: VideoDetails = JSON.parse(
       Buffer.from(match[1], "base64").toString()
     );
-    const servers = JSON.parse(
-      atob(decodedData.hash.split("").reverse().join(""))
-    );
+
+    let firstDecode = atob(decodedData.hash).split(".").map(item => { return item.split("").reverse().join("")})
+    let secondDecode = JSON.parse(atob(firstDecode.join("").split("").reverse().join("")))
+    const servers = secondDecode.map((server: Server) => { return { name: server.name, hash: server.hash }})
+    
     return {
       ...decodedData,
       servers: servers,
